@@ -113,6 +113,8 @@ while($row= mysqli_fetch_array($result))
 <?php
 }}
 
+
+
 //add student
 function addstudent($usn,$name,$email,$sem)
 {
@@ -132,7 +134,7 @@ else
 }
 
 
-// view student
+// view student attendance
 function viewstdattend()
 {
   include "db.php";
@@ -160,7 +162,7 @@ while($row= mysqli_fetch_array($result))
 
 
 
-//edit Item modal
+//edit attendance
 function editattend($id){
     include "db.php";
 $result=mysqli_query($conn,"SELECT `class`.course,`attenance`.id, `attenance`.hourss,`attenance`.created_at, `user`.name FROM `class` LEFT JOIN `attenance` ON `attenance`.`course` = `class`.`c_id` LEFT JOIN `user` ON `attenance`.`s_id` = `user`.`usn` where `attenance`.id='$id'");
@@ -204,7 +206,9 @@ while($row= mysqli_fetch_array($result))
 <?php
 }}
 
-//update Item
+
+
+//update attendance
 function updateattend($id,$hours)
 {
 
@@ -222,7 +226,7 @@ else
 
 
 
-// view student
+// view staff course
 function viewmycourse()
 {
   include "db.php";
@@ -241,7 +245,7 @@ while($row= mysqli_fetch_array($result))
 }}
 
 
-//edit Item modal
+//edit course
 function editcourse($id){
     include "db.php";
 $result=mysqli_query($conn,"SELECT * FROM `class` WHERE id='$id'");
@@ -281,7 +285,9 @@ while($row= mysqli_fetch_array($result))
 <?php
 }}
 
-//update Item
+
+
+//update course
 function updateclass($id,$hours,$class)
 {
 
@@ -299,7 +305,7 @@ else
 
 
 
-// view student
+// view staff
 function viewstaff()
 {
   include "db.php";
