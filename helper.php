@@ -320,12 +320,12 @@ while($row= mysqli_fetch_array($result))
 
 
 
-//add student
+//add staff
 function addstaff($tusn,$name,$email,$role,$dept,$phone)
 {
   include "db.php";
   $pass="$tusn$phone";
-$result=mysqli_query($conn,"insert into staff (t_usn,name,email,dept,role,$phone,password) values ('$tusn','$name','$email','$dept','$role','$phone','$pass')");
+$result=mysqli_query($conn,"insert into staff (t_usn,name,email,dept,role,phone,password) values ('$tusn','$name','$email','$dept','$role','$phone','$pass')");
 if($result)
   {
   header("location:admin.php?errorMessage=Registration_success&errorStatus=_New_Student_Added&error=success");
@@ -340,7 +340,7 @@ else
 
 
 
-// view student
+// view course
 function viewcourse()
 {
   include "db.php";
@@ -359,7 +359,7 @@ while($row= mysqli_fetch_array($result))
 
 
 
-// view student
+// view faculty
 function viewfaculty()
 {
   include "db.php";
@@ -372,7 +372,21 @@ while($row= mysqli_fetch_array($result))
 }}
 
 
+//add course
+function  addcourse($c_id,$course,$f_id)
+{
+  include "db.php";
 
+$result=mysqli_query($conn,"INSERT INTO class (c_id,f_id,course) VALUES ('$c_id','$f_id','$course')");
+if($result)
+  {
+  header("location:course.php?errorMessage=Course_Added_success&errorStatus=_New_Student_Added&error=success");
+  }
+else
+  {
+   header("location:course.php?errorMessage=Failed&errorStatus=_Please_Try_Again&error=danger");
+  }
+}
 
 
 

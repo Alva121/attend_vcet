@@ -133,7 +133,7 @@ margin-top: 20px;
             </div>            
             <div class="form-group">
                <label for="exampleInputPassword1">Email</label>
-               <input type="Email" name="email" class="form-control" id="exampleInputPassword1" placeholder="Student@gmail.com">
+               <input type="Email" name="email" class="form-control" id="exampleInputPassword1" placeholder="Email">
             </div>
               <div class="form-group">
                <label for="exampleInputEmail4">Department</label>

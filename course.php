@@ -12,16 +12,12 @@ if(isset($_POST['logout']))
 	session_destroy();
 	header("location:index.php");
 }
-if(isset($_POST['addstaff']))
+if(isset($_POST['addcourse']))
 {
-    $tusn=$_POST['tusn'];
-    $name=$_POST['name'];
-    $email=$_POST['email'];
-    $dept=$_POST['dept'];
-    $role=$_POST['role'];
-    $phone=$_POST['phone'];
- 
-   addstaff($tusn,$name,$email,$role,$dept,$phone);
+    $c_id=$_POST['c_id'];
+    $course=$_POST['course'];
+    $f_id=$_POST['f_id'];
+   addcourse($c_id,$course,$f_id);
 }
 if(isset($_GET['errorStatus']))
 {
@@ -120,7 +116,7 @@ margin-top: 20px;
             </div>
             <div class="form-group">
                <label for="exampleInputEmail2">Name</label>
-               <input type="text" name="Course" class="form-control" id="exampleInputEmail2" placeholder="Cource Name">
+               <input type="text" name="course" class="form-control" id="exampleInputEmail2" placeholder="Cource Name">
             </div>
             <div class="form-group">
                <label for="exampleInputEmail3">Role</label>
@@ -128,7 +124,7 @@ margin-top: 20px;
                 <?php viewfaculty(); ?>
                </select>
             </div>                     
-            <button name="addstaff" class="btn-lg btn-block btn-primary mt-2">Submit</button>
+            <button name="addcourse" class="btn-lg btn-block btn-primary mt-2">Submit</button>
           </form>
           </div>
       </div>
