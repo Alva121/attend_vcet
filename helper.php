@@ -29,9 +29,9 @@ else
               $_SESSION["t_usn"]=$row[1];
               $_SESSION["dept"]=$row[3];
               $_SESSION["role"]=$row[6];
-               echo $_SESSION["role"];
-               echo $_SESSION["dept"];
-               echo $_SESSION["t_usn"];
+//               echo $_SESSION["role"];
+//               echo $_SESSION["dept"];
+//               echo $_SESSION["t_usn"];
             }
           if($_SESSION["role"]=="Teacher")
             {
@@ -165,7 +165,7 @@ while($row= mysqli_fetch_array($result))
 //edit attendance
 function editattend($id){
     include "db.php";
-$result=mysqli_query($conn,"SELECT `class`.course,`attenance`.id, `attenance`.hourss,`attenance`.created_at, `user`.name FROM `class` LEFT JOIN `attenance` ON `attenance`.`course` = `class`.`c_id` LEFT JOIN `user` ON `attenance`.`s_id` = `user`.`usn` where `attenance`.id='$id'");
+$result=mysqli_query($conn,"SELECT `class`.course,`attenance`.id, `attenance`.hours,`attenance`.created_at, `user`.name FROM `class` LEFT JOIN `attenance` ON `attenance`.`course` = `class`.`c_id` LEFT JOIN `user` ON `attenance`.`s_id` = `user`.`usn` where `attenance`.id='$id'");
 while($row= mysqli_fetch_array($result))
 {
   ?>
@@ -198,7 +198,7 @@ while($row= mysqli_fetch_array($result))
           </form>
       </div>
       <div class="modal-footer">
-        <a href="attenance.php" type="button" class="btn btn-secondary">Close</a>
+        <a href="attendance.php" type="button" class="btn btn-secondary">Close</a>
       </div>
     </div>
   </div>
@@ -277,7 +277,7 @@ while($row= mysqli_fetch_array($result))
           </form>
       </div>
       <div class="modal-footer">
-        <a href="attenance.php" type="button" class="btn btn-secondary">Close</a>
+        <a href="attendance.php" type="button" class="btn btn-secondary">Close</a>
       </div>
     </div>
   </div>
@@ -399,7 +399,7 @@ function addAttendance($fid,$course)
 {
     include "db.php";
 
-    $sql="insert into attenance(s_id,hours,course) values('$fid',now(),'$course')";
+    $sql="insert into attenance(s_id,hours,course) values('$fid','01:00:00','$course')";
    $res= mysqli_query($conn,$sql);
    if($res)
        echo "ok";
