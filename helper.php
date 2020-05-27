@@ -12,26 +12,26 @@ $student=mysqli_query($conn,"select * from user where email='$email' and passwor
 
 if(mysqli_num_rows($student)==1)
   {
-    while ($row= mysqli_fetch_array($student)) 
+    while ($row= mysqli_fetch_array($student))
       {
-      $_SESSION["usn"]=$row[1]; 
+      $_SESSION["usn"]=$row[1];
       }
     header("Location:home.php");
   }
-else 
-  {        	
+else
+  {
     $staff=mysqli_query($conn,"select * from staff where email='$email' and password='$password'");
 
       if(mysqli_num_rows($staff)==1)
         {
-          while ($row= mysqli_fetch_array($staff)) 
+          while ($row= mysqli_fetch_array($staff))
             {
               $_SESSION["t_usn"]=$row[1];
               $_SESSION["dept"]=$row[3];
               $_SESSION["role"]=$row[6];
-              // echo $_SESSION["role"];
-              // echo $_SESSION["dept"];
-              // echo $_SESSION["t_usn"];
+               echo $_SESSION["role"];
+               echo $_SESSION["dept"];
+               echo $_SESSION["t_usn"];
             }
           if($_SESSION["role"]=="Teacher")
             {
@@ -392,6 +392,19 @@ else
   {
    header("location:course.php?errorMessage=Failed&errorStatus=_Please_Try_Again&error=danger");
   }
+}
+
+
+function addAttendance($fid,$course)
+{
+    include "db.php";
+
+    $sql="insert into attenance(s_id,hours,course) values('$fid',now(),'$course')";
+   $res= mysqli_query($conn,$sql);
+   if($res)
+       echo "ok";
+   else echo "fail".mysqli_error($conn);
+
 }
 
 

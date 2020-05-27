@@ -138,7 +138,7 @@ margin-top: 20px;
                 <option value="5st">5st</option>
                 <option value="6st">6st</option>
                </select>
-            </div>            
+            </div>
             <div class="form-group">
                <label for="exampleInputPassword1">Email</label>
                <input type="Email" name="email" class="form-control" id="exampleInputPassword1" placeholder="Student@gmail.com">
@@ -152,7 +152,7 @@ margin-top: 20px;
 </div>
 </body>
   <script type="text/javascript">
-    $(document).ready(function() 
+    $(document).ready(function()
     {
     $('#example').DataTable();
     });
